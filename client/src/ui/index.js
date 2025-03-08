@@ -1,7 +1,5 @@
-import CTA from "./components/CTA";
 import Alert from "./components/Alert";
 import Loader from "./components/Loader";
-import Footer from "./components/Footer";
 import HomeInfo from "./components/HomeInfo";
 import Button from "./components/Button";
 import Navigation from "./components/Navigation";
@@ -15,21 +13,23 @@ import Plane from "./components/3d/Plane";
 import Sky from "./components/3d/Sky";
 import Target from "./components/3d/Target";
 import SectionHeader from "./components/SectionHeader";
+import StarsBG from "./components/ShootingStarsBg";
 
 import Hero from "./section/Hero";
 import Matrix from "./section/Matrix";
+import Contact from "./section/Contact";
+import Footer from "./section/Footer";
 
 export {
-  CTA,
   Alert,
   Loader,
-  Footer,
   HomeInfo,
   Button,
   Navigation,
   PageLink,
   Logo,
   SectionHeader,
+  StarsBG,
   HackerRoom,
   Bird,
   Fox,
@@ -39,4 +39,6 @@ export {
   Target,
   Hero,
   Matrix,
+  Contact,
+  Footer,
 };

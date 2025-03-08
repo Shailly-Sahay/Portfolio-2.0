@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./styles/globals.css";
-import "./styles/utilities.css";
-import "./styles/variables.css";
+import "./index.css";
 import "./styles/font.css";
-import "./styles/new.css";
+import "./styles/variables.css";
 import "./styles/animations.css";
+import "./styles/utilities.css";
+import "./styles/new.css";
 
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";

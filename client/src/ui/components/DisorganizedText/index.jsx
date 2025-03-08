@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const DisorganizedText = ({ text, className, as: Tag = "h1" }) => {
+const DisorganizedText = ({ text, customClass, as: Tag = "h1" }) => {
   return (
-    <motion.span whileHover="hover" className={className}>
+    <motion.span whileHover="hover" className={customClass}>
       <Tag className="inline-block">
         {text.split(" ").map((word, wordIndex) => (
           <span key={wordIndex} className="inline-block whitespace-nowrap">
@@ -36,7 +36,7 @@ const DisorganizedText = ({ text, className, as: Tag = "h1" }) => {
 
 DisorganizedText.propTypes = {
   text: PropTypes.string.isRequired,
-  className: PropTypes.string,
+  customClass: PropTypes.string,
   as: PropTypes.string,
 };
 

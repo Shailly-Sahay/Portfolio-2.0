@@ -1,12 +1,13 @@
-import { Navigation, Hero, Matrix } from "../ui";
+import { Hero, Matrix, Contact, Footer } from "../ui";
 
 const PortfolioPage = () => {
   return (
     <div>
-      <Navigation />
       <div>
         <Hero />
         <Matrix />
+        <Contact />
+        <Footer />
       </div>
     </div>
   );

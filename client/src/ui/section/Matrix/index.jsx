@@ -76,7 +76,11 @@ const Matrix = () => {
             awesomeness
           </p>
           <div className="max-w-4xl mx-auto">
-            <Button text="LET'S JUMP IN" customClass="w-full " href="/" />
+            <Button
+              text="LET'S JUMP IN"
+              customClass="w-full "
+              href="https://github.com/Shailly-Sahay/Portfolio-2.0"
+            />
           </div>
         </div>
       </div>

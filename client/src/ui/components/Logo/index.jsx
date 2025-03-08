@@ -6,7 +6,7 @@ const Logo = () => {
     <Link to="/">
       <DisorganizedText
         text="SS"
-        className="text-white tracking-tighter glowing-text"
+        customClass="text-white tracking-tighter glowing-text"
         as="h2"
       />
     </Link>
