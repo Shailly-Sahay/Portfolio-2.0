@@ -1,0 +1,18 @@
+# Ignore the admin folder
+admin/
+
+# Ignore node_modules and env files for both client and server
+client/node_modules/
+client/.env
+
+server/node_modules/
+server/.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and cache
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log

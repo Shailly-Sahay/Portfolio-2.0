@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Bruce Forever";
+  src: url("/public/fonts/Bruce\ Forever.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bruce;
+}
+
+h1 {
+  @apply text-4xl lg:text-6xl;
+}
+
+h2 {
+  @apply text-3xl lg:text-4xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+.body-font {
+  @apply text-xl;
+}
+
+.large-font {
+  @apply text-2xl;
+}
+
+.small-font {
+  @apply text-lg;
+}
+
+/* colors */
+.glowing-text {
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.5),
+    0 0 8px rgba(255, 255, 255, 0.3), 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.hero_tag {
+  @apply text-center text-white large-font glowing-text;
+}
