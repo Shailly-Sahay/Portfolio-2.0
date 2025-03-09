@@ -18,7 +18,6 @@ const Button = ({
       $variant={variant}
       $shape={shape}
       onClick={onClick}
-      target="_blank"
       rel="noopener noreferrer"
     >
       {text}
