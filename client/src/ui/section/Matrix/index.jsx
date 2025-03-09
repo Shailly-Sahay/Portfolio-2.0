@@ -62,7 +62,7 @@ const Matrix = () => {
       ></div>
       <div className="section-pd h-[100vh] relative z-20 flex flex-col">
         {" "}
-        <SectionHeader text="Source Code" />
+        <SectionHeader text="Source Code" customClass="text-white" />
         <div className="my-auto text-center ">
           <DisorganizedText
             text="Behind The Simulation"
