@@ -7,6 +7,9 @@ import Loader from "../../components/Loader";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../../../constants";
 import Target from "../../components/3d/Target";
+import ReactLogo from "../../components/3d/ReactLogo";
+import Cube from "../../components/3d/Cube";
+import Rings from "../../components/3d/Rings";
 
 const Hero = () => {
   // const controls = useControls("HackerRoom", {
@@ -42,18 +45,32 @@ const Hero = () => {
   //   },
   //   scale: { value: 0, min: -10, max: 10 },
   // });
-  const isSmall = useMediaQuery({ maxWidth: 440 });
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const isSmall = useMediaQuery({ maxWidth: 440 }); // Small screens (e.g., small mobile)
+  const isMobile = useMediaQuery({ minWidth: 441, maxWidth: 768 }); // Mobile screens
+  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 }); // Tablets
 
-  const sizes = calculateSizes(isSmall, isMobile, isTablet);
+  // Additional breakpoints
+  const isLargeTablet = useMediaQuery({ minWidth: 1025, maxWidth: 1280 }); // Large tablets, small laptops
+  const isLaptop = useMediaQuery({ minWidth: 1281, maxWidth: 1440 }); // Standard laptops
+  const isDesktop = useMediaQuery({ minWidth: 1441, maxWidth: 1920 }); // Regular desktops
+  const isLargeScreen = useMediaQuery({ minWidth: 1921 }); // Ultra-wide screens
+
+  const sizes = calculateSizes(
+    isSmall,
+    isMobile,
+    isTablet,
+    isLargeTablet,
+    isLaptop,
+    isDesktop,
+    isLargeScreen
+  );
 
   return (
     <section
       className="section-pd min-h-screen w-full flex flex-col relative"
       id="home"
     >
-      <div className="w-full mx-auto flex flex-col sm:mt-52 mt-20 ">
+      <div className="w-full mx-auto flex flex-col mt-52 ">
         <h3 className=" text-white text-center mb-10">
           Hi, I am Shailly <span className="waving-hand">👋</span>
         </h3>
@@ -85,6 +102,9 @@ const Hero = () => {
             />
             <group>
               <Target position={sizes.targetPosition} />
+              <ReactLogo position={sizes.reactLogoPosition} />
+              <Cube position={sizes.cubePosition} />
+              <Rings position={sizes.ringPosition} />
             </group>
             <ambientLight intensity={1} />
             <directionalLight intensity={1} position={[10, 10, 10]} />

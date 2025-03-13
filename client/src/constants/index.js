@@ -232,37 +232,80 @@ export const projects = [
     link: "https://github.com/adrianhajdin/project_ai_summarizer",
   },
 ];
-export const calculateSizes = (isSmall, isMobile, isTablet) => {
+export const calculateSizes = (
+  isSmall,
+  isMobile,
+  isTablet,
+  isLargeTablet,
+  isLaptop,
+  isDesktop
+) => {
   return {
     deskScale: isSmall ? 0.03 : isMobile ? 0.04 : 0.05,
-    deskPosition: isMobile ? [0.5, -4.5, 0] : [0.25, -4.5, 0],
+    deskPosition: isSmall
+      ? [0.5, -3, 0]
+      : isMobile
+      ? [0.5, -4, 0]
+      : [0.25, -4.5, 0],
     cubePosition: isSmall
-      ? [4, -5, 0]
+      ? [3, -7, -10] // Small screens (mobile)
       : isMobile
-      ? [5, -5, 0]
+      ? [4, -4, -7] // Regular mobile screens
       : isTablet
-      ? [5, -5, 0]
-      : [9, -5.5, 0],
+      ? [5, -4, -1] // Tablets
+      : isLargeTablet
+      ? [6, -4, -1] // Large tablets / small laptops
+      : isLaptop
+      ? [7, -4, 0] // Standard laptops
+      : isDesktop
+      ? [9, -4, 0] // Regular desktops
+      : [10, 3, 0],
     reactLogoPosition: isSmall
-      ? [3, 4, 0]
+      ? [3, 5, -5] // Small screens (mobile)
       : isMobile
-      ? [5, 4, 0]
+      ? [3, 5, -2] // Regular mobile screens
       : isTablet
-      ? [5, 4, 0]
-      : [12, 3, 0],
+      ? [5, 4, 0] // Tablets
+      : isLargeTablet
+      ? [5, 4, 0] // Large tablets / small laptops
+      : isLaptop
+      ? [8, 3.5, 0] // Standard laptops
+      : isDesktop
+      ? [9, 3, 0] // Regular desktops
+      : [10, 3, 0],
     ringPosition: isSmall
-      ? [-5, 7, 0]
+      ? [-6, 14, -20] // Small screens (mobile)
       : isMobile
-      ? [-10, 10, 0]
+      ? [-9, 14, -14] // Regular mobile screens
       : isTablet
-      ? [-12, 10, 0]
-      : [-24, 10, 0],
+      ? [-12, 10, -10] // Tablets
+      : isLargeTablet
+      ? [-16, 11, -10] // Large tablets / small laptops
+      : isLaptop
+      ? [-20, 10, -10] // Standard laptops
+      : isDesktop
+      ? [-16, 7, 0] // Regular desktops
+      : [-16, 7, 0],
     targetPosition: isSmall
-      ? [-5, -10, -10]
+      ? [-3, -7, -5] // Small screens (mobile)
       : isMobile
-      ? [-9, -10, -10]
+      ? [-4, -6, -5] // Regular mobile screens
       : isTablet
-      ? [-11, -7, -10]
-      : [-13, -13, -10],
+      ? [-5, -5, -1] // Tablets
+      : isLargeTablet
+      ? [-6, -5, -1] // Large tablets / small laptops
+      : isLaptop
+      ? [-7, -5, -1] // Standard laptops
+      : isDesktop
+      ? [-9, -5, -1] // Regular desktops
+      : [-9, -5, -1],
   };
 };
+
+// isSmall: 0 - 440
+// isMobile: 441 - 768
+// isTablet: 769 - 1024
+// isLargeTablet: 1025 - 1280
+// isLaptop: 1281 - 1440
+// isDesktop: 1441 - 1920
+// isLargeScreen: 1921 - ..
