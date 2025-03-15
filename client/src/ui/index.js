@@ -7,11 +7,11 @@ import PageLink from "./components/Link";
 import Logo from "./components/Logo";
 import HackerRoom from "./components/3d/HackerRoom";
 import Bird from "./components/3d/Bird";
-import Fox from "./components/3d/Fox";
+// import Fox from "./components/3d/Fox";
 import Island from "./components/3d/Island";
 import Plane from "./components/3d/Plane";
 import Sky from "./components/3d/Sky";
-import Target from "./components/3d/Target";
+// import Target from "./components/3d/Target";
 import SectionHeader from "./components/SectionHeader";
 import StarsBG from "./components/ShootingStarsBg";
 
@@ -32,11 +32,9 @@ export {
   StarsBG,
   HackerRoom,
   Bird,
-  Fox,
   Island,
   Plane,
   Sky,
-  Target,
   Hero,
   Matrix,
   Contact,

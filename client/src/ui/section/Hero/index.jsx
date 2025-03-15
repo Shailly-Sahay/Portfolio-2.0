@@ -1,15 +1,13 @@
 import { PerspectiveCamera } from "@react-three/drei";
+import { useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import HackerRoom from "../../components/3d/HackerRoom";
 import Loader from "../../components/Loader";
 // import {Leva, useControls } from "leva";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../../../constants";
-import Target from "../../components/3d/Target";
-import ReactLogo from "../../components/3d/ReactLogo";
-import Cube from "../../components/3d/Cube";
-import Rings from "../../components/3d/Rings";
+import HeroCamrea from "../../components/3d/HeroCamrea";
+import Setup from "../../components/3d/Setup";
 
 const Hero = () => {
   // const controls = useControls("HackerRoom", {
@@ -65,6 +63,11 @@ const Hero = () => {
     isLargeScreen
   );
 
+  const isSmallerDevice = useMemo(
+    () => isSmall || isMobile || isTablet,
+    [isSmall, isMobile, isTablet]
+  );
+
   return (
     <section
       className="section-pd min-h-screen w-full flex flex-col relative"
@@ -84,28 +87,19 @@ const Hero = () => {
         <Canvas className="w-full h-full">
           <Suspense fallback={<Loader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 14]} />
-            <HackerRoom
-              scale={sizes.deskScale}
-              position={sizes.deskPosition}
-              rotation={[0, Math.PI, 0]}
-              // scale={[controls.scale, controls.scale, controls.scale]}
-              // position={[
-              //   controls.positionX,
-              //   controls.positionY,
-              //   controls.positionZ,
-              // ]}
-              // rotation={[
-              //   controls.rotationX,
-              //   controls.rotationY,
-              //   controls.rotationZ,
-              // ]}
-            />
-            <group>
+            <HeroCamrea isSmallerDevice={isSmallerDevice}>
+              <Setup
+                scale={sizes.setupScale}
+                position={sizes.setupPosition}
+                rotation={[0, -Math.PI / 2, 0]}
+              />
+            </HeroCamrea>
+            {/* <group>
               <Target position={sizes.targetPosition} />
               <ReactLogo position={sizes.reactLogoPosition} />
               <Cube position={sizes.cubePosition} />
               <Rings position={sizes.ringPosition} />
-            </group>
+            </group> */}
             <ambientLight intensity={1} />
             <directionalLight intensity={1} position={[10, 10, 10]} />
           </Suspense>

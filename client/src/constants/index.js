@@ -247,6 +247,33 @@ export const calculateSizes = (
       : isMobile
       ? [0.5, -4, 0]
       : [0.25, -4.5, 0],
+
+    setupScale: isSmall
+      ? [3, -7, -10] // Small screens (mobile)
+      : isMobile
+      ? [4, -4, -7] // Regular mobile screens
+      : isTablet
+      ? [5, -4, -1] // Tablets
+      : isLargeTablet
+      ? [6, -4, -1] // Large tablets / small laptops
+      : isLaptop
+      ? [7, -4, 0] // Standard laptops
+      : isDesktop
+      ? 1.5 // Regular desktops
+      : 1.5,
+    setupPosition: isSmall
+      ? [3, -7, -10] // Small screens (mobile)
+      : isMobile
+      ? [4, -4, -7] // Regular mobile screens
+      : isTablet
+      ? [5, -4, -1] // Tablets
+      : isLargeTablet
+      ? [6, -4, -1] // Large tablets / small laptops
+      : isLaptop
+      ? [7, -4, 0] // Standard laptops
+      : isDesktop
+      ? [0, -5, 0] // Regular desktops
+      : [0, -5, 0],
     cubePosition: isSmall
       ? [3, -7, -10] // Small screens (mobile)
       : isMobile
