@@ -20,6 +20,7 @@ import Matrix from "./section/Matrix";
 import Contact from "./section/Contact";
 import Footer from "./section/Footer";
 import Projects from "./section/Projects";
+import AboutMe from "./section/About Me";
 
 export {
   Alert,
@@ -41,4 +42,5 @@ export {
   Contact,
   Footer,
   Projects,
+  AboutMe,
 };

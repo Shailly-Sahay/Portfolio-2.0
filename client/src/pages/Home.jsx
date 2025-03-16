@@ -110,7 +110,7 @@ const Home = () => {
 
       {sceneLoaded && <Navigation />}
       {sceneLoaded && (
-        <div className="absolute top-48 left-0 right-0 z-10 flex items-center justify-end section-pd">
+        <div className="absolute w-full top-0 left-0 z-10 flex  justify-center section-pd">
           {currentStage && <HomeInfo currentStage={currentStage} />}
         </div>
       )}

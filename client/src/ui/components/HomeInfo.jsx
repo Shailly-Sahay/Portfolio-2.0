@@ -12,7 +12,7 @@ const HomeInfo = ({ currentStage }) => {
         <div className="info-box">
           <DisorganizedText
             className="text-end text-white"
-            text="Hi, I'm Shailly"
+            text="Hi, I'm Shailly Sahay"
             as="h3"
           />
           <DisorganizedText
@@ -20,6 +20,14 @@ const HomeInfo = ({ currentStage }) => {
             text="Full-stack developer with a focus on frontend and a growing interest in 3D web."
             as="h3"
           />
+
+          <Link
+            to="/portfolio"
+            rel="noopener noreferrer"
+            className="neo-brutalism-white neo-btn"
+          >
+            my portfolio lies here
+          </Link>
         </div>
 
         {/* Animated Text */}
