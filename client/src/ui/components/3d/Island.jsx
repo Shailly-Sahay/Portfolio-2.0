@@ -5,13 +5,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 
 import islandScene from "/models/island.glb";
 
-const Island = ({
-  isRotating,
-  setIsRotating,
-  setCurrentStage,
-  currentFocusPoint,
-  ...props
-}) => {
+const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   const islandRef = useRef();
   // Get access to the Three.js renderer and viewport
   const { gl, viewport } = useThree();

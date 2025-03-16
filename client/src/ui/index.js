@@ -19,6 +19,7 @@ import Hero from "./section/Hero";
 import Matrix from "./section/Matrix";
 import Contact from "./section/Contact";
 import Footer from "./section/Footer";
+import Projects from "./section/Projects";
 
 export {
   Alert,
@@ -39,4 +40,5 @@ export {
   Matrix,
   Contact,
   Footer,
+  Projects,
 };

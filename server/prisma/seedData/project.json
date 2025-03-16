@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Forkify",
+    "description": "A recipe book app that allows users to search, view, and save recipes from an external API.",
+    "liveUrl": "https://forkify-shailly.com",
+    "githubUrl": "https://github.com/shailly/forkify",
+    "logo": "https://yourstorage.com/forkify-logo.png",
+    "video": "https://yourstorage.com/forkify-demo.mp4",
+    "category": "FULL_STACK"
+  },
+  {
+    "id": 2,
+    "name": "Tee Fusion",
+    "description": "A 3D T-shirt customizer using React Three Fiber, allowing users to design and visualize personalized apparel.",
+    "liveUrl": "https://tee-fusion.com",
+    "githubUrl": "https://github.com/shailly/tee-fusion",
+    "logo": "https://yourstorage.com/tee-fusion-logo.png",
+    "video": "https://yourstorage.com/tee-fusion-demo.mp4",
+    "category": "FRONTEND_3D"
+  },
+  {
+    "id": 3,
+    "name": "CryptoHub",
+    "description": "A blockchain-based platform to track real-time cryptocurrency prices, wallet balances, and transactions.",
+    "liveUrl": "https://crypto-hub.com",
+    "githubUrl": "https://github.com/shailly/crypto-hub",
+    "logo": "https://yourstorage.com/crypto-hub-logo.png",
+    "video": "https://yourstorage.com/crypto-hub-demo.mp4",
+    "category": "BLOCKCHAIN"
+  }
+]

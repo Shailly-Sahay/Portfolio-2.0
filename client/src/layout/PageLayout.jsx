@@ -6,7 +6,7 @@ const PageLayout = ({ children }) => {
       <div className="fixed inset-0 w-full h-screen pointer-events-none">
         <StarsBG />
       </div>
-      <Navigation />
+      {/* <Navigation />   */}
       <div className="relative z-10 min-h-screen">{children}</div>
     </div>
   );

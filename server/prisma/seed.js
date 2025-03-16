@@ -5,51 +5,59 @@ import path from "path";
 const prisma = new PrismaClient();
 
 async function deleteAllData(orderedFileNames) {
-  const modelNames = orderedFileNames.map((fileName) => {
-    const modelName = path.basename(fileName, path.extname(fileName));
-    return modelName.charAt(0).toUpperCase() + modelName.slice(1);
-  });
+  for (const fileName of orderedFileNames) {
+    const modelName = path.basename(fileName, path.extname(fileName)); // Extract model name from file
+    const capitalizedModel =
+      modelName.charAt(0).toUpperCase() + modelName.slice(1); // Capitalize first letter
 
-  for (const modelName of modelNames) {
-    const model = prisma[modelName];
+    if (!prisma[capitalizedModel]) {
+      console.warn(
+        `⚠️ No Prisma model found for ${capitalizedModel}, skipping...`
+      );
+      continue;
+    }
+
     try {
-      await model.deleteMany({});
-      console.log(`✅ Cleared data from ${modelName}`);
+      await prisma[capitalizedModel].deleteMany({});
+      console.log(`✅ Cleared data from ${capitalizedModel}`);
     } catch (error) {
-      console.error(`❌ Error clearing data from ${modelName}:`, error);
+      console.error(`❌ Error clearing data from ${capitalizedModel}:`, error);
     }
   }
 }
 
 async function main() {
-  const dataDirectory = path.join(process.cwd(), "seedData"); // Use process.cwd() instead of __dirname in ES modules
+  const dataDirectory = path.join(process.cwd(), "prisma", "seedData");
+  console.log("🔍 Checking seed data directory at:", dataDirectory);
 
-  const orderedFileNames = [
-    "team.json",
-    "project.json",
-    "projectTeam.json",
-    "user.json",
-    "task.json",
-    "attachment.json",
-    "comment.json",
-    "taskAssignment.json",
-  ];
+  const orderedFileNames = ["project.json", "techStack.json"]; // Correct filenames
 
   await deleteAllData(orderedFileNames);
 
   for (const fileName of orderedFileNames) {
-    const filePath = path.join(dataDirectory, fileName);
-    const jsonData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     const modelName = path.basename(fileName, path.extname(fileName));
-    const model = prisma[modelName];
+    const capitalizedModel =
+      modelName.charAt(0).toUpperCase() + modelName.slice(1);
 
+    if (!prisma[capitalizedModel]) {
+      console.warn(`⚠️ No Prisma model found for ${fileName}, skipping...`);
+      continue;
+    }
+
+    const filePath = path.join(dataDirectory, fileName);
+    if (!fs.existsSync(filePath)) {
+      console.warn(`⚠️ File not found: ${filePath}, skipping...`);
+      continue;
+    }
+
+    const jsonData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     try {
       for (const data of jsonData) {
-        await model.create({ data });
+        await prisma[capitalizedModel].create({ data });
       }
-      console.log(`✅ Seeded ${modelName} with data from ${fileName}`);
+      console.log(`✅ Seeded ${capitalizedModel} with data from ${fileName}`);
     } catch (error) {
-      console.error(`❌ Error seeding data for ${modelName}:`, error);
+      console.error(`❌ Error seeding data for ${capitalizedModel}:`, error);
     }
   }
 }

@@ -5,10 +5,11 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql" // Change if using another DB
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+// 🔹 Model for Tech Stacks (Tools Used)
 model TechStack {
   id       Int                @id @default(autoincrement())
   tool     String             @unique
@@ -16,16 +17,27 @@ model TechStack {
   projects ProjectTechStack[]
 }
 
+// 🔹 Model for Projects
 model Project {
   id          Int                @id @default(autoincrement())
   name        String
   description String
-  liveUrl     String?
-  githubUrl   String?
-  image       String?
+  liveUrl     String? // Made Optional
+  githubUrl   String? // Made Optional
+  video       String? // Made Optional
+  logo        String? // Made Optional
   techStack   ProjectTechStack[]
+  category    ProjectCategory
 }
 
+// 🔹 Enum for Project Categories
+enum ProjectCategory {
+  FULL_STACK
+  FRONTEND_3D
+  BLOCKCHAIN
+}
+
+// 🔹 Junction Table for Many-to-Many Relationship
 model ProjectTechStack {
   id        Int       @id @default(autoincrement())
   project   Project   @relation(fields: [projectId], references: [id])

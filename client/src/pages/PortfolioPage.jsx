@@ -1,10 +1,11 @@
-import { Hero, Matrix, Contact, Footer } from "../ui";
+import { Hero, Matrix, Contact, Footer, Projects } from "../ui";
 
 const PortfolioPage = () => {
   return (
     <div>
       <div>
         <Hero />
+        <Projects />
         <Matrix />
         <Contact />
         <Footer />
