@@ -14,7 +14,7 @@ const Loader = () => {
               <Word className="word">Stage</Word>
               <Word className="word">Beauty</Word>
               <Word className="word">World</Word>
-              <Word className="word">Stage</Word>
+              <Word className="word">Island</Word>
             </Words>
           </LoaderWrapper>
         </CardWrapper>
