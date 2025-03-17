@@ -1,119 +1,101 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
-import {
-  car,
-  contact,
-  css,
-  estate,
-  express,
-  git,
-  github,
-  html,
-  javascript,
-  linkedin,
-  mongodb,
-  motion,
-  mui,
-  nextjs,
-  nodejs,
-  pricewise,
-  react,
-  redux,
-  sass,
-  snapgram,
-  summiz,
-  tailwindcss,
-  threads,
-  typescript,
-} from "../assets/icons";
-
-export const skills = [
+export const techStack = [
   {
-    imageUrl: css,
-    name: "CSS",
-    type: "Frontend",
+    id: 1,
+    tool: "HTML5",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   },
   {
-    imageUrl: express,
-    name: "Express",
-    type: "Backend",
+    id: 2,
+    tool: "CSS3",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   },
   {
-    imageUrl: git,
-    name: "Git",
-    type: "Version Control",
+    id: 3,
+    tool: "JavaScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
-    imageUrl: github,
-    name: "GitHub",
-    type: "Version Control",
+    id: 4,
+    tool: "jQuery",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
   },
   {
-    imageUrl: html,
-    name: "HTML",
-    type: "Frontend",
+    id: 5,
+    tool: "SASS",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
   },
   {
-    imageUrl: javascript,
-    name: "JavaScript",
-    type: "Frontend",
+    id: 6,
+    tool: "Tailwind CSS",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
   },
   {
-    imageUrl: mongodb,
-    name: "MongoDB",
-    type: "Database",
+    id: 7,
+    tool: "Bootstrap",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
   },
   {
-    imageUrl: motion,
-    name: "Motion",
-    type: "Animation",
+    id: 8,
+    tool: "React",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
   {
-    imageUrl: mui,
-    name: "Material-UI",
-    type: "Frontend",
+    id: 9,
+    tool: "Next.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg",
   },
   {
-    imageUrl: nextjs,
-    name: "Next.js",
-    type: "Frontend",
+    id: 10,
+    tool: "MongoDB",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   },
   {
-    imageUrl: nodejs,
-    name: "Node.js",
-    type: "Backend",
+    id: 11,
+    tool: "Node.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
   {
-    imageUrl: react,
-    name: "React",
-    type: "Frontend",
+    id: 12,
+    tool: "Express",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   },
   {
-    imageUrl: redux,
-    name: "Redux",
-    type: "State Management",
+    id: 13,
+    tool: "TypeScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
   },
   {
-    imageUrl: sass,
-    name: "Sass",
-    type: "Frontend",
+    id: 14,
+    tool: "Three.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg",
   },
   {
-    imageUrl: tailwindcss,
-    name: "Tailwind CSS",
-    type: "Frontend",
+    id: 15,
+    tool: "Framer Motion",
+    icon: "https://framerusercontent.com/images/c7DqWjIo9iICztzcyOq1NNYIk.svg",
   },
   {
-    imageUrl: typescript,
-    name: "TypeScript",
-    type: "Frontend",
+    id: 16,
+    tool: "Angular",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+  },
+  {
+    id: 17,
+    tool: "PostgreSQL",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  },
+  {
+    id: 18,
+    tool: "Redux",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
   },
 ];
 
 export const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
+    title: "Associate Content Manager",
+    company_name: "Codeyoung",
+    // icon: starbucks,
     iconBg: "#accbe1",
     date: "March 2020 - April 2021",
     points: [
@@ -124,9 +106,9 @@ export const experiences = [
     ],
   },
   {
-    title: "React Native Developer",
+    title: "Software Developer",
     company_name: "Tesla",
-    icon: tesla,
+    // icon: tesla,
     iconBg: "#fbc3bc",
     date: "Jan 2021 - Feb 2022",
     points: [
@@ -136,51 +118,25 @@ export const experiences = [
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
-  {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#b7e4c7",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#a2d2ff",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
 ];
 
-export const socialLinks = [
-  {
-    name: "Contact",
-    iconUrl: contact,
-    link: "/contact",
-  },
-  {
-    name: "GitHub",
-    iconUrl: github,
-    link: "https://github.com/YourGitHubUsername",
-  },
-  {
-    name: "LinkedIn",
-    iconUrl: linkedin,
-    link: "https://www.linkedin.com/in/YourLinkedInUsername",
-  },
-];
+// export const socialLinks = [
+//   {
+//     name: "Contact",
+//     iconUrl: contact,
+//     link: "/contact",
+//   },
+//   {
+//     name: "GitHub",
+//     iconUrl: github,
+//     link: "https://github.com/YourGitHubUsername",
+//   },
+//   {
+//     name: "LinkedIn",
+//     iconUrl: linkedin,
+//     link: "https://www.linkedin.com/in/YourLinkedInUsername",
+//   },
+// ];
 
 export const myProjects = [
   {

@@ -39,7 +39,7 @@ const Navigation = () => {
           {isHomePage ? (
             <Button
               text="Visit My Portfolio"
-              href="portfolio"
+              href="https://shaillysahay.netlify.app/"
               onClick={handleNavBar}
             />
           ) : (
@@ -64,7 +64,7 @@ const Navigation = () => {
               {isHomePage ? (
                 <Button
                   text="Visit My Portfolio"
-                  href="portfolio"
+                  href="https://shaillysahay.netlify.app/"
                   onClick={handleNavBar}
                 />
               ) : (

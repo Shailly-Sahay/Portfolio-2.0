@@ -1,9 +1,8 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
 
-import sakura from "../assets/sakura.mp3";
+import shrek from "/assets/music/shrek.mp3";
 import { HomeInfo, Loader, Navigation } from "../ui";
-import { soundoff, soundon } from "../assets/icons";
 import { Bird, Island, Plane, Sky } from "../ui";
 import { setIsHomePage } from "../state/state";
 import { useDispatch } from "react-redux";
@@ -13,7 +12,7 @@ const Home = () => {
 
   dispatch(setIsHomePage(true));
 
-  const audioRef = useRef(new Audio(sakura));
+  const audioRef = useRef(new Audio(shrek));
   audioRef.current.volume = 0.4;
   audioRef.current.loop = true;
 
@@ -116,9 +115,13 @@ const Home = () => {
       )}
 
       {sceneLoaded && (
-        <div className="absolute bottom-12 left-10">
+        <div className="absolute bottom-24 left-16">
           <img
-            src={!isPlayingMusic ? soundoff : soundon}
+            src={
+              !isPlayingMusic
+                ? "/assets/icons/soundoff.png"
+                : "/assets/icons/soundon.png"
+            }
             alt="jukebox"
             onClick={() => setIsPlayingMusic(!isPlayingMusic)}
             className="w-24 h-24 cursor-pointer object-contain"

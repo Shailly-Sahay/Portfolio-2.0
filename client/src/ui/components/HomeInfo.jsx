@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { arrow } from "../../assets/icons";
+
 import DisorganizedText from "./DisorganizedText";
 import { Github } from "lucide-react";
 import { motion } from "framer-motion";
@@ -22,7 +22,7 @@ const HomeInfo = ({ currentStage }) => {
           />
 
           <Link
-            to="/portfolio"
+            to="https://shaillysahay.netlify.app/"
             rel="noopener noreferrer"
             className="neo-brutalism-white neo-btn"
           >
@@ -51,13 +51,17 @@ const HomeInfo = ({ currentStage }) => {
           as="h3"
         />
         <Link
-          to="https://drive.google.com/file/d/1nQXbnDy5mbyFUJOn6Hl46__UDby0wJ4p/view?usp=sharing"
+          to="https://drive.google.com/file/d/1Uz1-5G4usXFfRM8GE7b9y4_FhgvdH9K6/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="neo-brutalism-white neo-btn"
         >
           grab it
-          <img src={arrow} alt="arrow" className="w-4 h-4 object-contain" />
+          <img
+            src="/assets/icons/arrow.svg"
+            alt="arrow"
+            className="w-4 h-4 object-contain"
+          />
         </Link>
       </div>
     );
@@ -99,7 +103,11 @@ const HomeInfo = ({ currentStage }) => {
           className="neo-brutalism-white neo-btn"
         >
           check it out
-          <img src={arrow} alt="arrow" className="w-4 h-4 object-contain" />
+          <img
+            src="/assets/icons/arrow.svg"
+            alt="arrow"
+            className="w-4 h-4 object-contain"
+          />
         </Link>
       </div>
     );

@@ -82,25 +82,13 @@ const Projects = () => {
         </div>
 
         <div className="border border-black-300  rounded-lg h-[1000px] md:h-full">
-          <Leva />
+          {/* <Leva /> */}
           <Canvas>
             <ambientLight intensity={10} />
             <directionalLight position={[0, 0, 10]} />
             <Center>
               <Suspense fallback={<Loader />}>
-                <Laptop
-                  scale={controls.scale}
-                  rotation={[
-                    controls.rotationX,
-                    controls.rotationY,
-                    controls.rotationZ,
-                  ]}
-                  position={[
-                    controls.positionX,
-                    controls.positionY,
-                    controls.positionZ,
-                  ]}
-                />
+                <Laptop />
               </Suspense>
             </Center>
           </Canvas>

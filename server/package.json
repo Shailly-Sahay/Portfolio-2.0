@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "rimraf dist",
     "start": "node src/index.js",
     "dev": "npm run build && concurrently \"nodemon src/index.js\"",
     "seed": "node prisma/seed.js"

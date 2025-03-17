@@ -1,139 +1,143 @@
-import Button from "../../components/Button";
-import DisorganizedText from "../../components/DisorganizedText";
-import HighlightCard from "../../components/HighlightCard";
-import SectionHeader from "../../components/SectionHeader";
-import PropTypes from "prop-types";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 
-const Label = ({ forTag, label }) => {
-  return (
-    <label
-      for={forTag}
-      className="text-white body-font glowing-text z-10 font-normal"
-    >
-      {label}
-    </label>
-  );
-};
-
-Label.propTypes = {
-  forTag: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-};
-
-const Input = ({ id, placeholder, inputType, type = "text" }) => {
-  return inputType === "textarea" ? (
-    <textarea
-      id={id}
-      placeholder={placeholder}
-      required
-      className="w-full p-2 border rounded-md resize-none z-10 font-normal"
-    />
-  ) : (
-    <input
-      type={type}
-      id={id}
-      placeholder={placeholder}
-      required
-      className="w-full p-2 border rounded-md z-10 font-normal focus:outline-yellow-500"
-    />
-  );
-};
-
-Input.propTypes = {
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  inputType: PropTypes.string.isRequired,
-  type: PropTypes.string, // Accepts "text", "email", "password", "textarea", etc.
-};
-
-const FormField = ({ formField }) => {
-  return (
-    <div class="flex flex-col mb-6 gap-4">
-      <Label forTag={formField.for} label={formField.label} />
-      <Input
-        inputType={formField.inputType}
-        placeholder={formField.placeholder}
-        id={formField.for}
-      />
-    </div>
-  );
-};
-
-FormField.prototypes = {
-  formField: PropTypes.object,
-};
+import useAlert from "../../../hooks/useAlert.js";
+import Alert from "../alert.jsx";
 
 const Contact = () => {
-  const formFields = [
-    {
-      id: 1,
-      for: "name",
-      label: "Name",
-      placeholder: "What's your cool name?",
-      type: "text",
-      inputType: "input",
-    },
-    {
-      id: 2,
-      for: "email",
-      label: "Email",
-      placeholder: "What's your cool email?",
-      type: "text",
-      inputType: "input",
-    },
-    {
-      id: 3,
-      for: "name",
-      label: "Name",
-      placeholder: "What's your cool name?",
-      type: "text",
-      inputType: "textarea",
-    },
-  ];
+  const formRef = useRef();
+
+  const { alert, showAlert, hideAlert } = useAlert();
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const handleChange = ({ target: { name, value } }) => {
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "JavaScript Mastery",
+          from_email: form.email,
+          to_email: "sujata@jsmastery.pro",
+          message: form.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setLoading(false);
+          showAlert({
+            show: true,
+            text: "Thank you for your message 😃",
+            type: "success",
+          });
+
+          setTimeout(() => {
+            hideAlert(false);
+            setForm({
+              name: "",
+              email: "",
+              message: "",
+            });
+          }, [3000]);
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+
+          showAlert({
+            show: true,
+            text: "I didn't receive your message 😢",
+            type: "danger",
+          });
+        }
+      );
+  };
 
   return (
-    <section className="section-pd relative bg-black h-[100vh] flex items-center">
-      <div className="hehe"></div>
-      <HighlightCard>
-        <div className="flex flex-col md:flex-row gap-48 section-pd-sm">
-          <div className="w-[40%]">
-            <SectionHeader text="Contact" customClass="justify-start" />
-            <DisorganizedText
-              text="Want to connect?"
-              as="h2"
-              customClass="relative glowing-text z-[10] mb-8"
-            />
-            <p className="relative z-[10] font-normal body-font">
-              Get your space suit ready for a fun adventure! We are about to
-              blast off with some crazy and exciting ideas for a dream website.
-              Buckle up for the ride!
-            </p>
-          </div>
-          <div className="w-1/2">
-            <form action="#" class="form">
-              <div class="form__wrapper">
-                <div class="form__container">
-                  {formFields.map((formField) => (
-                    <FormField key={formField.id} formField={formField} />
-                  ))}
+    <section className="c-space my-20" id="contact">
+      {alert.show && <Alert {...alert} />}
 
-                  <div class="form__group">
-                    <a href="mailto:shaillysahayy@gmail.com">
-                      <i class="fa-solid fa-envelope"></i>
-                      shaillysahayy@gmail.com
-                    </a>
-                    <Button
-                      text="I WILL TALK"
-                      shape="round"
-                      customClass="z-10"
-                    />
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+      <div className="relative min-h-screen flex items-center justify-center flex-col">
+        <img
+          src="/assets/terminal.png"
+          alt="terminal-bg"
+          className="absolute inset-0 min-h-screen"
+        />
+
+        <div className="contact-container">
+          <h3 className="head-text">Let us talk</h3>
+          <p className="text-lg text-white-600 mt-3">
+            Whether you’re looking to build a new website, improve your existing
+            platform, or bring a unique project to life, I’m here to help.
+          </p>
+
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="mt-12 flex flex-col space-y-7"
+          >
+            <label className="space-y-3">
+              <span className="field-label">Full Name</span>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className="field-input"
+                placeholder="ex., John Doe"
+              />
+            </label>
+
+            <label className="space-y-3">
+              <span className="field-label">Email address</span>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                className="field-input"
+                placeholder="ex., johndoe@gmail.com"
+              />
+            </label>
+
+            <label className="space-y-3">
+              <span className="field-label">Your message</span>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="field-input"
+                placeholder="Share your thoughts or inquiries..."
+              />
+            </label>
+
+            <button className="field-btn" type="submit" disabled={loading}>
+              {loading ? "Sending..." : "Send Message"}
+
+              <img
+                src="/assets/arrow-up.png"
+                alt="arrow-up"
+                className="field-btn_arrow"
+              />
+            </button>
+          </form>
         </div>
-      </HighlightCard>
+      </div>
     </section>
   );
 };
