@@ -2,10 +2,14 @@ import { useState } from "react";
 import SectionHeader from "../../components/SectionHeader";
 
 const AboutMe = () => {
-  const [activeTab, setActiveTab] = useState("Tab 1");
+  const [activeTab, setActiveTab] = useState("About Me");
 
   const tabs = [
-    { name: "About Me", content: "This is content for Tab 1" },
+    {
+      name: "About Me",
+      content:
+        "THi there! I'm Shailly Sahay, your friendly front-end web developer from Patna, Bihar. I have done my bachelors in Physics from St. Xavier's College in Mumbai. I love making websites look great and work well. Let's create something amazing together!",
+    },
     { name: "Work Experience", content: "This is content for Tab 2" },
     { name: "Education", content: "This is content for Tab 3" },
   ];
@@ -21,33 +25,35 @@ const AboutMe = () => {
           />
         </div>
 
-        <div className="flex flex-col section-pd">
-          <div>
-            {tabs.map((tab) => (
-              <>
-                <button
-                  key={tab.name}
-                  className={`flex-1 py-2 px-4 text-center ${
-                    activeTab === tab.name
-                      ? "border-b-2 border-blue-500 font-semibold"
-                      : "text-gray-500"
-                  }`}
-                  onClick={() => setActiveTab(tab.name)}
-                >
-                  {tab.name}
-                </button>
-              </>
-            ))}
-          </div>
-
-          <div className="p-4 rounded-b-lg">
+        <div className="flex w-1/2 section-pd">
+          <div className="grid grid-cols-2 gap-4">
+            {/* Make SectionHeader span across both columns */}
             <SectionHeader
+              customClass="col-span-2 text-center"
               text={tabs.find((tab) => tab.name === activeTab)?.name}
             />
-            <p className="text-white">
-              {" "}
-              {tabs.find((tab) => tab.name === activeTab)?.content}
-            </p>
+
+            {/* Tabs */}
+            {tabs.map((tab) => (
+              <button
+                key={tab.name}
+                className={`py-2 px-4 text-center ${
+                  activeTab === tab.name
+                    ? "border-b-2 text-white border-blue-500 font-semibold"
+                    : "text-gray-500"
+                }`}
+                onClick={() => setActiveTab(tab.name)}
+              >
+                {tab.name}
+              </button>
+            ))}
+
+            {/* Content - Make it span both columns */}
+            <div className="col-span-2 p-4 rounded-b-lg">
+              <p className="text-white">
+                {tabs.find((tab) => tab.name === activeTab)?.content}
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -116,7 +116,7 @@ const Home = () => {
       )}
 
       {sceneLoaded && (
-        <div className="absolute bottom-2 left-2">
+        <div className="absolute bottom-12 left-10">
           <img
             src={!isPlayingMusic ? soundoff : soundon}
             alt="jukebox"

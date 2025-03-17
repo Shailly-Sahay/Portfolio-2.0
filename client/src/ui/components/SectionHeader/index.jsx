@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const SectionHeader = ({ text, customClass = "" }) => {
   return (
-    <div
+    <span
       className={`mb-[4rem] flex ${
         customClass ? customClass : "justify-center"
       }`}
@@ -22,11 +22,11 @@ const SectionHeader = ({ text, customClass = "" }) => {
         />
         <span className="text-[var(--primary-light-1)] font-bold">{text}</span>
       </TagContainer>
-    </div>
+    </span>
   );
 };
 
-const TagContainer = tw.div`
+const TagContainer = tw.span`
   px-8 py-4 rounded-full body-font border-2 border-primary
   bg-[#6919ff24] relative inline-block overflow-hidden
 `;
